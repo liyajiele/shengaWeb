@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是消费者－省啊</title>
+	<meta name="keywords" content="省啊，省啊官网，省啊返利，省啊app，省啊招商加盟，省啊加盟，省啊分享经济，省啊赚钱"/>
+    <meta name="description" content="“省啊”是上海邑个网络科技有限公司打造的消费返利神器，吃喝玩乐购，将人脉变钱脉，作为分享经济的领路者，省啊总部现面向全国招募城市合伙人，加入我们一起打造中国O2O消费返利第一品牌！"/ >
+</head>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/public.css" />
+<link rel="stylesheet" href="css/index2.css">
+<link rel="shortcut icon" href="favicon.ico">
+<body>
+<div class="bigbox">
+    <div class="navtop">
+        <div class="navtopleft">
+            <img src="img/index/logo.png" alt="" />
+        </div>
+        <ul class="navtopright">
+            <li><a href="index.html">关于省啊</a></li>
+			<li class="hover"><a href="consumer.html" class="hovera">我是消费者</a></li>
+			<li><a href="merchant.html">我是商家</a></li>
+			<li><a href="join.html">招商加盟</a></li>
+			<li><a href="aboutUs.html">关于我们</a></li>
+        </ul>
+    </div>
+
+    <div class="bannerbox">
+        <p>全民营销</p>
+    </div>
+
+    <ul class="xiaobox">
+       <li>
+           <img src="img/xiaofei/yao.png" alt="">
+           <h2>邀请好友</h2>
+           <p>顾客 A 推荐好友顾客 B 成为省啊用户</p>
+           <p>顾客 B 推荐好友顾客 C 成为省啊用户</p>
+       </li>
+        <li>
+            <img src="img/xiaofei/xiao.png" alt="">
+            <h2>成功消费</h2>
+            <p>顾客 C 通过省啊成功付款</p>
+            <p>顾客C可获得现金返利</p>
+            <p>同时顾客 B 、顾客 A 都将获得层级分佣</p>
+        </li>
+        <li>
+            <img src="img/xiaofei/ti.png" alt="">
+            <h2>收益提现</h2>
+            <p>自己和下级推广用户通过省啊消费</p>
+            <p>获取的平台返利，不仅可以用于再次消费</p>
+            <p>而且可以提现</p>
+        </li>
+    </ul>
+
+    <div class="nowzhuan">
+        <div class="lima">
+            立即扫码赚钱
+            <img src="img/xiaofei/samllarrows.png" alt="">
+        </div>
+        <div class="quan">
+            <img src="img/xiaofei/ma.png" alt="">
+        </div>
+    </div>
+
+    <div class="jiameng">
+        <h2>加盟代理</h2>
+        <p>如果您有意向，输入您的联系方式，我们竭诚为您服务。</p>
+        <div class="inputbox">
+            <div class="inputlist">
+				<input type="text" placeholder="姓名" value="" id="realname"/>
+				<span>*</span>
+			</div>
+			<div class="inputlist">
+				<input type="text" placeholder="邮箱"  value="" id="email"/>
+				<span>*</span>
+			</div>
+			<div class="inputlist">
+				<input type="text" placeholder="电话"  value="" id="mobile"/>
+				<span>*</span>
+			</div>
+			<div class="inputlist">
+				<input type="text" placeholder="QQ"  value="" id="qq"/>
+				<span>*</span>
+			</div>
+            <textarea name="" rows="" cols="" placeholder="留言，我对项目很感兴趣，请将详细资料发送到我的邮箱。"></textarea>
+        </div>
+        <div class="tijiao btnbox">提交</div>
+    </div>
+
+    <div class="aboutshenga">
+        <div class="aboutleft">
+            <h2>关于省啊</h2>
+            <hr />
+            <p>省啊是上海邑个网络科技有限公司倾力打造的分享经济代表作——借助分享经济，实践人脉变现，直接让消费者参与产品利润分红的创业项目。扫码消费优惠购，推荐消费做商人。</p>
+        </div>
+        <div class="aboutright">
+            <p>021-34792118</p>
+            <div class="contactbtn"><a href="aboutUs.html">联系我们</a></div>
+            <div class="imgbox">
+                <img src="img/index/ma.png" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+	
+	$(document).ready(function(){
+		
+	  $(".btnbox").click(function(){
+	  	var realname = $("#realname").val();
+		var mobile = $("#mobile").val();
+		var email=$("#email").val();
+		var qq=$("#qq").val();
+	    $.ajax({
+	        type:"post",
+	        url:"http://api.51shenga.com:8999/api/common/baoMing",
+	        data:{
+	        	realname:realname,
+	        	mobile:mobile,
+	        	email:email,
+	        	qq:qq,
+	        	qudao:0,
+	        },
+	        dataType:"text",
+	        success:function(data){
+	            alert("报名成功，工作人员稍后主动了联系您！祝您生活愉快！");
+	        },
+	    })
+	  });
+	  
+	  $(".btna").click(function(){
+	    window.location.href = "join.html";
+	  });
+	  
+	  $(".navtopright li").each(function(){ 
+		    $this = $(this); 
+		    if($this[0].href==String(window.location)){ 
+		      $this.addClass("hover"); 
+		    } 
+		}); 
+	 
+	 $(".navtopright li a").each(function(){ 
+		    $this = $(this); 
+		    if($this[0].href==String(window.location)){ 
+		      $this.addClass("hovera"); 
+		    } 
+		}); 
+	  
+	})
+</script>

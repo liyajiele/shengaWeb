@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	padding:0;
+	list-style: none;
+	color: #353535;
+}
+body{
+	height: 100%;
+	width: 100%;
+}
+h1,h2,h3,h4,h5,h6,p,img,hr{
+	margin:0;
+	padding:0;
+}
+a{
+	color: #353535;
+}
+a:hover{
+	color: #1C82D4;
+	text-decoration: none;
+
+}
